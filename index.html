@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="pages/index.css">
+  <title>Mesto</title>
+</head>
+<body class="root">
+  <div class="page">
+    <header class="header">
+      <img src="images/logo.svg" class="header__logo" alt="Логотип Место">
+    </header>
+    <main>
+      <section class="profile">
+        <div class="profile__left">
+          <div class="profile__avatar"></div>
+          <div class="profile__info">
+            <div class="profile__name-line">
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <button class="profile__edit-button">
+              <img src="images/edit-button.svg" alt="Кнопка редактирования профиля" class="profile__edit-button-picture">
+              </button>
+            </div>
+            <h2 class="profile__description">Исследователь океана</h2>
+          </div>
+        </div>
+        <div class="profile__right">
+          <button class="profile__add-button">
+            <img src="images/add-button.svg" alt="Кнопка 'добавить'" class="profile__add-button-picture">
+          </button>
+        </div>
+      </section>
+      <section class="elements">
+        <article class="element">
+          <img class="element__image" src="images/perovo.jpeg" alt="Перово">
+          <div class="element__footer">
+            <div class="element__footer-line">
+            <h2 class="element__title">Перово</h2>
+            <button class="element__like-button">
+              <img class="element__like-button-icon" src="images/like-button-white.svg" alt="Кнопка лайка">
+            </button>
+          </div>
+        </div>
+        </article>
+        <article class="element">
+          <img class="element__image" src="images/chertanovo.jpeg" alt="Перово">
+          <div class="element__footer">
+            <div class="element__footer-line">
+            <h2 class="element__title">Чертаново</h2>
+            <button class="element__like-button">
+              <img class="element__like-button-icon" src="images/like-button-white.svg" alt="Кнопка лайка">
+            </button>
+          </div>
+        </div>
+        </article>
+        <article class="element">
+          <img class="element__image" src="images/sokolniki.jpeg" alt="Перово">
+          <div class="element__footer">
+            <div class="element__footer-line">
+            <h2 class="element__title">Сокольники</h2>
+            <button class="element__like-button">
+              <img class="element__like-button-icon" src="images/like-button-white.svg" alt="Кнопка лайка">
+            </button>
+          </div>
+        </div>
+        </article>
+        <article class="element">
+          <img class="element__image" src="images/golyanovo.webp" alt="Перово">
+          <div class="element__footer">
+            <div class="element__footer-line">
+            <h2 class="element__title">Гольяново</h2>
+            <button class="element__like-button">
+              <img class="element__like-button-icon" src="images/like-button-white.svg" alt="Кнопка лайка">
+            </button>
+          </div>
+        </div>
+        </article>
+        <article class="element">
+          <img class="element__image" src="images/kapotnya.jpeg" alt="Перово">
+          <div class="element__footer">
+            <div class="element__footer-line">
+            <h2 class="element__title">Капотня</h2>
+            <button class="element__like-button">
+              <img class="element__like-button-icon" src="images/like-button-white.svg" alt="Кнопка лайка">
+            </button>
+          </div>
+        </div>
+        </article>
+        <article class="element">
+          <img class="element__image" src="images/pechatniki.jpeg" alt="Перово">
+          <div class="element__footer">
+            <div class="element__footer-line">
+            <h2 class="element__title">Печатники</h2>
+            <button class="element__like-button">
+              <img class="element__like-button-icon" src="images/like-button-white.svg" alt="Кнопка лайка">
+            </button>
+          </div>
+        </div>
+        </article>
+      </section>
+    </main>
+    <footer class="footer">
+      © 2020 Mesto Russia
+    </footer>
+    <div class="popup">
+      <div class="popup__container">
+        <button class="popup__close">
+          <img class="popup__close-icon" src="images/close-icon.svg"></img></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form action="" method="get" class="popup__form">
+          <input class="popup__input" type="text" placeholder="Ваше имя" name="name" required >
+          <input class="popup__input" type="text" placeholder="О себе" name="job" required>
+          <button class="popup__save-button">Сохранить</button>
+        </form>
+      </div>
+    </div>
+  </div>
+<script src="scripts/index.js"></script>
+</body>
+</html>
