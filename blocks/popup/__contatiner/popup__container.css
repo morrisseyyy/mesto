@@ -1,7 +1,6 @@
 .popup__container {
   max-width: 430px;
   width: 100%;
-  min-height: 330px;
   background-color: #fff;
   border-radius: 10px;
   position: relative;
@@ -10,6 +9,5 @@
 @media screen and (max-width: 879px) {
   .popup__container {
     max-width: 282px;
-    min-height: 322px;
   }
 }
