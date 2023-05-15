@@ -1,7 +1,3 @@
-.popup__close-icon {
-
-}
-
 @media screen and (max-width: 879px) {
   .popup__close-icon {
     width: 20px;
