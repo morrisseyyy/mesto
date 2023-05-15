@@ -8,7 +8,11 @@
   margin-block-end: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
+<<<<<<< HEAD
   overflow: hidden;
+=======
+  overflow: hidden; 
+>>>>>>> 4e03a63e3e9c38736ec687b86545250f873da0e7
   max-width: 400px;
 }
 
