@@ -8,5 +8,7 @@
 @media screen and (max-width: 879px) {
   .profile__add-button-picture {
     padding: 17px 132px;
+    width: 16px;
+    height: 16px;
   }
 }
