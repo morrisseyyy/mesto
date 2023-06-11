@@ -1,5 +1,6 @@
 .element__like-button {
-  background-color: transparent;
+  /* background-color: transparent; */
+  background: url(../../../images/like-button-white.svg);
   padding: 0;
   border-width: 0;
   border-style: none;

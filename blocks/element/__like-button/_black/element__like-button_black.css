@@ -1,0 +1,10 @@
+.element__like-button_black {
+  background: url(../../../../images/like-button-black.svg);
+  padding: 0;
+  border-width: 0;
+  border-style: none;
+  border-color: none;
+  border-image: none;
+  width: 22px;
+  height: 19px;
+}
