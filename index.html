@@ -48,22 +48,22 @@
     <footer class="footer">
       <p class="footer__text">© 2023 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup_profile">
       <div class="popup__container">
-        <button class="popup__close" type="button">
+        <button class="popup__close" type="button" id="popup-profile-edit-close-button">
           <img class="popup__close-icon" src="images/close-icon.svg" alt='Кнопка "закрыть"'>
         </button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form action="#" method="get" class="popup__form">
+        <form action="#" method="get" class="popup__form" id="profile-popup-form">
           <input class="popup__input" type="text" placeholder="Ваше имя" name="name" id="name" required >
           <input class="popup__input" type="text" placeholder="О себе" name="job" id="job" required>
           <button class="popup__save-button" type="submit">Сохранить</button>
         </form>
       </div>
     </div>
-    <div class="popup" id="picture-popup">
+    <div class="popup popup_add-picture" id="picture-popup">
       <div class="popup__container">
-        <button class="popup__close" type="button" id="picture-popup-close-button">
+        <button class="popup__close" type="button" id="popup-new-picture-close-button">
           <img class="popup__close-icon" src="images/close-icon.svg" alt='Кнопка "закрыть"'>
         </button>
         <h2 class="popup__title">Новое место</h2>
@@ -74,14 +74,17 @@
         </form>
       </div>
     </div>
-    <div class="big-picture-popup">
-      <div class="big-picture-popup__container">
-        <img class="big-picture-popup__close-button" type="button" src="images/close-icon.svg" alt="Удалить">
-        <img class="big-picture-popup__picture" src="#" alt="">
-        <h2 class="big-picture-popup__name"></h2>
+    <div class="popup popup_big-picture">
+      <div class="popup__big-container">
+        <button class="popup__close" type="button" id="popup-big-picture-close-button">
+          <img class="popup__close-icon" src="images/close-icon.svg" alt='Кнопка "закрыть"'>
+        </button>
+        <img class="popup__opened-picture" src="#" alt="">
+        <h2 class="popup__picture-name"></h2>
       </div>
     </div>
   </div>
-<script src="scripts/index.js"></script>
+  <script src="scripts/cards.js"></script>
+  <script src="scripts/index.js"></script>
 </body>
 </html>

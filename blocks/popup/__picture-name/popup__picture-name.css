@@ -1,4 +1,4 @@
-.big-picture-popup__name {
+.popup__picture-name {
   padding-top: 10px;
   font-family: 'Inter';
   font-style: normal;
@@ -8,4 +8,4 @@
   color: #FFFFFF;
   margin-block-start: 0;
   margin-block-end: 0;
-} 
+}
