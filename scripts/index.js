@@ -17,14 +17,12 @@ const profileDescription = document.querySelector('.profile__description');
 const nameInput = document.getElementById('name');
 const jobInput = document.getElementById('job');
 
-function openPopup(item, name = "", link = "") {
+const bigPicture = document.querySelector('.popup__opened-picture');
+const bigPictureName = document.querySelector('.popup__picture-name');
+
+
+function openPopup(item, name, link) {
     item.classList.add('popup_opened');
-    if (name && link) {
-        const bigPicture = item.querySelector('.popup__opened-picture');
-        const bigPictureName = item.querySelector('.popup__picture-name');
-        bigPicture.src = link;
-        bigPictureName.textContent = name;
-    }
 }
 
 function closePopup(item) {
@@ -93,20 +91,22 @@ function createCard(name, link) {
     });
 
     cardElement.querySelector('.element__image').addEventListener('click', () => {
+        bigPictureName.textContent = name;
+        bigPicture.src = link;
+        bigPicture.alt = name;
         openPopup(popupBigPicture, name, link);
     });
 
     return cardElement;
 }
 
-function addCardToContainer(cardElement) {
-    const container = document.querySelector('.elements');
-    container.prepend(cardElement);
+function addCardToGallery(cardElement) {
+    gallery.prepend(cardElement);
 }
 
 initialCards.forEach(item => {
     const cardElement = createCard(item.name, item.link);
-    addCardToContainer(cardElement);
+    addCardToGallery(cardElement);
 });
 
 function handleFormNewPicture(event) {
@@ -114,7 +114,7 @@ function handleFormNewPicture(event) {
     const name = pictureNameInput.value;
     const link = pictureLinkInput.value;
     const cardElement = createCard(name, link);
-    addCardToContainer(cardElement);
+    addCardToGallery(cardElement);
     closePopup(popupNewPicture);
     pictureFormElement.reset();
 }
@@ -128,5 +128,3 @@ popupBigPicture.addEventListener('click', (event) => {
         closePopup(popupBigPicture);
     }
 });
-
-galleryElement.addEventListener('click', () => openPopup(popupBigPicture, galleryElementName.textContent, galleryElement.src));
