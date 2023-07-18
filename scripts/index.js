@@ -29,7 +29,11 @@ function closePopup(item) {
     item.classList.remove('popup_opened');
 }
 
-buttonEdit.addEventListener('click', () => openPopup(popupProfile));
+buttonEdit.addEventListener('click', () => {
+    nameInput.value = profileName.textContent;
+    jobInput.value = profileDescription.textContent;
+    openPopup(popupProfile)}
+    );
 
 buttonClosePopupEdit.addEventListener('click', () => closePopup(popupProfile));
 buttonClosePopupNewPicture.addEventListener('click', () => closePopup(popupNewPicture));
