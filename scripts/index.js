@@ -14,20 +14,28 @@ const profileFormElement = document.getElementById('profile-popup-form');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
 
-const nameInput = document.getElementById('name');
-const jobInput = document.getElementById('job');
+const nameInput = document.getElementById('name-input');
+const jobInput = document.getElementById('job-input');
 
 const bigPicture = document.querySelector('.popup__opened-picture');
 const bigPictureName = document.querySelector('.popup__picture-name');
 
 
-function openPopup(item, name, link) {
+function openPopup(item) {
     item.classList.add('popup_opened');
+    document.addEventListener('keydown', handleEscPress);
 }
 
 function closePopup(item) {
     item.classList.remove('popup_opened');
+    document.removeEventListener('keydown', handleEscPress);
 }
+
+function handleEscPress(event) {
+    if (event.key === 'Escape') {
+      closePopup(document.querySelector('.popup_opened'));
+    }
+  }
 
 buttonEdit.addEventListener('click', () => {
     nameInput.value = profileName.textContent;
