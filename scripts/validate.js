@@ -7,12 +7,17 @@ enableValidation({
   errorClass: 'popup__error_visible'
 });
 
+function disableButton(buttonElement, inactiveButtonClass) {
+  buttonElement.disabled = true;
+  buttonElement.classList.add(inactiveButtonClass);
+}
 
 function enableValidation(settings) {
   const formList = Array.from(document.querySelectorAll(settings.formSelector));
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
+      disableButton(buttonElement, settings.inactiveButtonClass);
     });
 
     setEventListeners(formElement, settings);
@@ -25,6 +30,14 @@ function setEventListeners(formElement, settings) {
 
   toggleButtonState(inputList, buttonElement, settings);
 
+  formElement.addEventListener('reset', () => {
+    inputList.forEach((inputElement) => {
+      hideInputError(formElement, inputElement, settings);
+      toggleButtonState(inputList, buttonElement, settings);
+    });
+    disableButton(buttonElement, settings.inactiveButtonClass);
+  });
+
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
       checkInputValidity(formElement, inputElement, settings);
@@ -33,13 +46,6 @@ function setEventListeners(formElement, settings) {
 
     inputElement.addEventListener('focus', () => {
       hideInputError(formElement, inputElement, settings);
-    });
-  });
-
-  formElement.addEventListener('reset', () => {
-    inputList.forEach((inputElement) => {
-      hideInputError(formElement, inputElement, settings);
-      toggleButtonState(inputList, buttonElement, settings);
     });
   });
 }
@@ -69,6 +75,7 @@ function hideInputError(formElement, inputElement, settings) {
 }
 
 function toggleButtonState(inputList, buttonElement, settings) {
+  
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(settings.inactiveButtonClass);
     buttonElement.disabled = true;
