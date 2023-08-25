@@ -1,8 +1,11 @@
+import {bigPicture, bigPictureName, openPopup, popupBigPicture} from './index.js';
+
 class Card {
-  constructor(data, templateSelector) {
+  constructor(data, templateSelector, openPopup) {
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
+    this.openPopup = openPopup;
   }
 
   _getTemplate() {
@@ -26,11 +29,9 @@ class Card {
         this._handleDeleteButtonClick();
       });
 
-    this._element
-      .querySelector(".element__image")
-      .addEventListener("click", () => {
-        this._handleCardImageClick();
-      });
+    this._imageElement.addEventListener("click", () => {
+      this._handleCardImageClick();
+    });
   }
 
   _handleLikeButtonClick() {
@@ -44,21 +45,24 @@ class Card {
   }
 
   _handleCardImageClick() {
-    const bigPicture = document.querySelector(".popup__opened-picture");
-    const bigPictureName = document.querySelector(".popup__picture-name");
     bigPictureName.textContent = this._name;
     bigPicture.src = this._link;
     bigPicture.alt = this._name;
-    document.querySelector(".popup_big-picture").classList.add("popup_opened");
+    openPopup(popupBigPicture);
+  }
+
+  static createCard(name, link) {
+    return new Card({name, link}, "#template");
   }
 
   generateCard() {
     this._element = this._getTemplate();
+    this._imageElement = this._element.querySelector(".element__image");
     this._setEventListeners();
 
     this._element.querySelector(".element__title").textContent = this._name;
-    this._element.querySelector(".element__image").src = this._link;
-    this._element.querySelector(".element__image").alt = this._name;
+    this._imageElement.src = this._link;
+    this._imageElement.alt = this._name;
 
     return this._element;
   }
