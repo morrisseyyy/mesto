@@ -1,10 +1,19 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
-import initialCards from "./constants.js";
+import { initialCards, popupBigPicture }  from "./utils/constants.js";
+import { openPopup, closePopup, handleEscPress } from "./utils/utils.js";
+
+const validationSettings = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
 
 const popupProfile = document.querySelector(".popup_profile");
 const popupNewPicture = document.querySelector(".popup_add-picture");
-export const popupBigPicture = document.querySelector(".popup_big-picture");
 
 const buttonEdit = document.querySelector(".profile__edit-button");
 const profileName = document.querySelector(".profile__name");
@@ -20,31 +29,18 @@ const pictureLinkInput = document.getElementById("img-link");
 const gallery = document.querySelector(".elements");
 const addCardButton = document.querySelector(".profile__add-button");
 
-export const bigPicture = popupBigPicture.querySelector(".popup__opened-picture");
-export const bigPictureName = popupBigPicture.querySelector(".popup__picture-name");
-
 const buttonClosePopupEdit = document.getElementById("popup-profile-edit-close-button");
 const buttonClosePopupNewPicture = document.getElementById("popup-new-picture-close-button");
 const buttonClosePopupBigPicture = document.getElementById("popup-big-picture-close-button");
 
+const inputList = Array.from(
+  pictureFormElement.querySelectorAll(validationSettings.inputSelector)
+);
+const buttonElement = pictureFormElement.querySelector(
+  validationSettings.submitButtonSelector
+);
+
 const popupList = [popupProfile, popupNewPicture, popupBigPicture];
-
-export function openPopup(popup) {
-  popup.classList.add("popup_opened");
-}
-
-function closePopup(popup) {
-  popup.classList.remove("popup_opened");
-}
-
-function handleEscPress(event) {
-  if (event.key === "Escape") {
-    const openedPopup = document.querySelector(".popup_opened");
-    closePopup(openedPopup);
-  }
-}
-
-document.addEventListener("keydown", handleEscPress);
 
 buttonEdit.addEventListener("click", () => {
   nameInput.value = profileName.textContent;
@@ -92,15 +88,6 @@ function handleFormNewPicture(event) {
   pictureFormElement.reset();
 }
 
-const validationSettings = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-};
-
 const profileFormValidator = new FormValidator(validationSettings, profileFormElement);
 const pictureFormValidator = new FormValidator(validationSettings, pictureFormElement);
 
@@ -112,15 +99,5 @@ pictureFormValidator.enableValidation();
 
 addCardButton.addEventListener("click", () => {
   openPopup(popupNewPicture);
-  
-  const inputList = Array.from(
-    pictureFormElement.querySelectorAll(validationSettings.inputSelector)
-  );
-  const buttonElement = pictureFormElement.querySelector(
-    validationSettings.submitButtonSelector
-  );
-
   pictureFormValidator.toggleButtonState(inputList, buttonElement);
 });
-
-export default popupBigPicture;

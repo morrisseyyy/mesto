@@ -25,4 +25,9 @@ const initialCards = [
   }
 ];
 
-export default initialCards;
+
+const popupBigPicture = document.querySelector(".popup_big-picture");
+const bigPicture = popupBigPicture.querySelector(".popup__opened-picture");
+const bigPictureName = popupBigPicture.querySelector(".popup__picture-name");
+
+export { initialCards, popupBigPicture, bigPicture, bigPictureName };
